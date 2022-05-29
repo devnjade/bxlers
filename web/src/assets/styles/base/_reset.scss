@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $black;
+  min-height: 100vh;
+  color: $white;
+  font-family: 'Space Mono', monospace;
+  scroll-behavior: smooth;
+}
+
+input, select, textarea, button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  border: none;
+  outline: none;
+  background: none;
+  -webkit-appearance: none;
+  font-family: 'Space Mono', monospace;
+}
+
+button {
+  cursor: pointer;
+}
+
+p, a {
+  font-size: 16px;
+  color: $white;
+  font-family: 'Space Mono', monospace;
+  margin: 0;
+  text-decoration: none;
+}
