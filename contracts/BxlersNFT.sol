@@ -5,7 +5,7 @@ import "hardhat/console.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract BxlersNft is ERC721, Ownable {
+contract BxlersNFT is ERC721, Ownable {
   uint256 public mintPrice;
   uint256 public totalSupply;
   uint256 public maxSupply;
@@ -19,7 +19,7 @@ contract BxlersNft is ERC721, Ownable {
 
   mapping(address => uint256) public walletMints;
 
-  constructor() payable ERC721('Bxlers', 'BXL') public {
+  constructor() payable ERC721("Bxlers", "BXL") {
     mintPrice = 0.1 ether;
     totalSupply = 0;
     maxSupply = 1000;
