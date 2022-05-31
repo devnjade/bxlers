@@ -84,8 +84,8 @@ const App: React.FC = () => {
   )
 
   const Mint = async () => {
-    const res = await contract;
-    const tx = await res.mint(counter, {
+    // const res = await contract;
+    const tx = await contract.mint(counter, {
       value: ethers.utils.parseEther((0.1 * counter).toFixed(1).toString()),
     });
     const receipt = await tx;
@@ -149,7 +149,7 @@ const App: React.FC = () => {
                 />
                 <button onClick={increment}>+</button>
               </div>
-              <button disabled={wrongNetwork} onClick={() => Mint()}>Mint {price.toFixed(1)}</button>
+              <button  onClick={() => Mint()}>Mint {price.toFixed(1)}</button>
             </div>
           </div>
         }
