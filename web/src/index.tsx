@@ -2,7 +2,15 @@ import App from 'app';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'assets/styles/index.scss';
-import { BrowserRouter } from 'react-router-dom';
+import { WagmiConfig, createClient } from 'wagmi'
+import { InjectedConnector } from 'wagmi/connectors/injected'
+
+const client = createClient({
+  autoConnect: true,
+  connectors: [
+    new InjectedConnector(),
+  ]
+})
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -10,8 +18,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <WagmiConfig client={client}>
       <App />
-    </BrowserRouter>
+    </WagmiConfig>
   </React.StrictMode>
 );

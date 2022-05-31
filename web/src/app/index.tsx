@@ -1,23 +1,37 @@
 import React from "react";
-import { ToastContainer } from "react-toastify";
-import Router from "routes";
+import styles from './index.module.scss';
+import {
+  useAccount,
+  useConnect,
+  useDisconnect,
+  useEnsAvatar,
+  useEnsName,
+} from 'wagmi';
 
 const App: React.FC = () => {
+  const { connect, connectors, error, isConnecting, pendingConnector } = useConnect();
+  console.log(connectors)
+
+  const connectWallet = () => {
+    connect(connectors[0])
+  };
+
+  React.useEffect(() => {
+    if (error) {
+      console.log(error)
+    }
+    if (isConnecting) {
+      console.log('connecting')
+    }
+  }, [error, isConnecting])
+
   return (
-    <>
-      <Router />
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-    </>
+    <div className={styles.container}>
+      <div className={styles.box}>
+        <p className={styles.header}>Bxlers NFT</p>
+        <button className={styles.connectWallet}>Connect Wallet</button>
+      </div>
+    </div>
   )
 }
 
